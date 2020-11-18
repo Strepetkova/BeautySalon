@@ -40,6 +40,9 @@ namespace BeautySalon
         private void UserControlLoad()
         {
             int i = ProdNumber; // начальное значение товара на странице
+            int maxProduct = 0;
+            int viewValue = 0;
+            maxProduct = products.Count;
             foreach (ProductUserControl puc in controls)
             {
                 if (i < db.Product.Count())
@@ -50,6 +53,7 @@ namespace BeautySalon
                     string file = @"C:\Users\user\Documents\Учебная практика\11 - Магазин косметики (ДЭ 2020 осень)\Ресурсы для задания\" + s;  // добавляем, чтобы бралось из папки       
                     puc.ProdPictImage = Image.FromFile(file);
                     puc.Visible = true;
+                    viewValue++;
                     if (products[i].IsActive == "да")
                     {
                         puc.BackColor = Color.White;
@@ -65,10 +69,10 @@ namespace BeautySalon
                 }
                 i++; // переход к следующему товару
             }
-            int max = ProdNumber + 6;
-            if (max > 100) max = 100;
+            //int max = ProdNumber + 6;
+            //if (max > 100) max = 100;
 
-            Rangelb.Text = $"с {ProdNumber + 1} по {max}";
+            Rangelb.Text = $"{viewValue} из {maxProduct}";
         }
 
         private void rightButton_Click(object sender, EventArgs e)
