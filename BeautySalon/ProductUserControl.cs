@@ -16,5 +16,24 @@ namespace BeautySalon
         {
             InitializeComponent();
         }
+
+        [Description("Картинка для товара"), Category("Макет")] // Data")]
+        public Image ProdPictImage
+        {
+            set => ProdPictureBox.Image = value;
+        }
+
+        [Description("Название товара"), Category("Data")]
+        public string ProdNameText
+        {
+            //get => myInnerTextBox.Text;
+            set => ProdNameRichtb.Text = value;
+        }
+        [Description("Цена товара"), Category("Data")]
+        public decimal ProdPriceValue
+        {
+            //get => myInnerTextBox.Text;
+            set => ProdPricelb.Text = value.ToString();
+        }
     }
 }
