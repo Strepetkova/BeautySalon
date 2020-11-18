@@ -37,9 +37,9 @@ namespace BeautySalon
             // 
             // ProdPictureBox
             // 
-            this.ProdPictureBox.Location = new System.Drawing.Point(36, 18);
+            this.ProdPictureBox.Location = new System.Drawing.Point(48, 18);
             this.ProdPictureBox.Name = "ProdPictureBox";
-            this.ProdPictureBox.Size = new System.Drawing.Size(168, 148);
+            this.ProdPictureBox.Size = new System.Drawing.Size(141, 125);
             this.ProdPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ProdPictureBox.TabIndex = 0;
             this.ProdPictureBox.TabStop = false;
@@ -47,17 +47,20 @@ namespace BeautySalon
             // ProdPricelb
             // 
             this.ProdPricelb.AutoSize = true;
-            this.ProdPricelb.Location = new System.Drawing.Point(96, 256);
+            this.ProdPricelb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ProdPricelb.Location = new System.Drawing.Point(97, 249);
             this.ProdPricelb.Name = "ProdPricelb";
-            this.ProdPricelb.Size = new System.Drawing.Size(35, 13);
+            this.ProdPricelb.Size = new System.Drawing.Size(38, 14);
             this.ProdPricelb.TabIndex = 1;
             this.ProdPricelb.Text = "label1";
             // 
             // ProdNameRichtb
             // 
-            this.ProdNameRichtb.Location = new System.Drawing.Point(37, 172);
+            this.ProdNameRichtb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ProdNameRichtb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ProdNameRichtb.Location = new System.Drawing.Point(36, 176);
             this.ProdNameRichtb.Name = "ProdNameRichtb";
-            this.ProdNameRichtb.Size = new System.Drawing.Size(167, 70);
+            this.ProdNameRichtb.Size = new System.Drawing.Size(167, 61);
             this.ProdNameRichtb.TabIndex = 2;
             this.ProdNameRichtb.Text = "";
             // 
@@ -69,7 +72,7 @@ namespace BeautySalon
             this.Controls.Add(this.ProdPricelb);
             this.Controls.Add(this.ProdPictureBox);
             this.Name = "ProductUserControl";
-            this.Size = new System.Drawing.Size(241, 286);
+            this.Size = new System.Drawing.Size(241, 279);
             ((System.ComponentModel.ISupportInitialize)(this.ProdPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
