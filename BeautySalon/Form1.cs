@@ -50,6 +50,14 @@ namespace BeautySalon
                     string file = @"C:\Users\user\Documents\Учебная практика\11 - Магазин косметики (ДЭ 2020 осень)\Ресурсы для задания\" + s;  // добавляем, чтобы бралось из папки       
                     puc.ProdPictImage = Image.FromFile(file);
                     puc.Visible = true;
+                    if (products[i].IsActive == "да")
+                    {
+                        puc.BackColor = Color.White;
+                    }
+                    else
+                    {
+                        puc.BackColor = Color.LightGray;
+                    }
                 }
                 else
                 {
