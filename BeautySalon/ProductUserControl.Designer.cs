@@ -37,7 +37,7 @@ namespace BeautySalon
             // 
             // ProdPictureBox
             // 
-            this.ProdPictureBox.Location = new System.Drawing.Point(48, 18);
+            this.ProdPictureBox.Location = new System.Drawing.Point(36, 15);
             this.ProdPictureBox.Name = "ProdPictureBox";
             this.ProdPictureBox.Size = new System.Drawing.Size(141, 125);
             this.ProdPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -48,7 +48,7 @@ namespace BeautySalon
             // 
             this.ProdPricelb.AutoSize = true;
             this.ProdPricelb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ProdPricelb.Location = new System.Drawing.Point(97, 249);
+            this.ProdPricelb.Location = new System.Drawing.Point(88, 230);
             this.ProdPricelb.Name = "ProdPricelb";
             this.ProdPricelb.Size = new System.Drawing.Size(38, 14);
             this.ProdPricelb.TabIndex = 1;
@@ -58,9 +58,9 @@ namespace BeautySalon
             // 
             this.ProdNameRichtb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProdNameRichtb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ProdNameRichtb.Location = new System.Drawing.Point(36, 176);
+            this.ProdNameRichtb.Location = new System.Drawing.Point(24, 163);
             this.ProdNameRichtb.Name = "ProdNameRichtb";
-            this.ProdNameRichtb.Size = new System.Drawing.Size(167, 61);
+            this.ProdNameRichtb.Size = new System.Drawing.Size(167, 57);
             this.ProdNameRichtb.TabIndex = 2;
             this.ProdNameRichtb.Text = "";
             // 
@@ -73,7 +73,7 @@ namespace BeautySalon
             this.Controls.Add(this.ProdPricelb);
             this.Controls.Add(this.ProdPictureBox);
             this.Name = "ProductUserControl";
-            this.Size = new System.Drawing.Size(241, 279);
+            this.Size = new System.Drawing.Size(209, 254);
             ((System.ComponentModel.ISupportInitialize)(this.ProdPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

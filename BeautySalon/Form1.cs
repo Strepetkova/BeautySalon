@@ -17,6 +17,7 @@ namespace BeautySalon
         int ProdNumber = 0;
         List<Product> products = new List<Product>();
         List<ProductUserControl> controls = new List<ProductUserControl>();
+        List<Manufacturer> manufacturers = new List<Manufacturer>();
 
         public MainForm()
         {
@@ -25,6 +26,9 @@ namespace BeautySalon
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "user38DataSet.Manufacturer". При необходимости она может быть перемещена или удалена.
+            this.manufacturerTableAdapter.Fill(this.user38DataSet.Manufacturer);
+
             controls.Add(productUserControl1);
             controls.Add(productUserControl2);
             controls.Add(productUserControl3);
@@ -35,6 +39,17 @@ namespace BeautySalon
             products = db.Product.ToList();
 
             UserControlLoad();
+
+            if (7 < 7)
+            {
+                MessageBox.Show("Are you okey?");
+            }
+            else
+            {
+                MessageBox.Show("Okey, you are okey...");
+            }
+
+            //Filtercb.Items.Insert(0, "Все элементы");
         }
 
         private void UserControlLoad()
@@ -45,7 +60,7 @@ namespace BeautySalon
             maxProduct = products.Count;
             foreach (ProductUserControl puc in controls)
             {
-                if (i < db.Product.Count())
+                if (i < products.Count/*db.Product.Count*/())
                 {
                     puc.ProdNameText = products[i].Title;
                     puc.ProdPriceValue = products[i].Cost;
@@ -78,7 +93,7 @@ namespace BeautySalon
         private void rightButton_Click(object sender, EventArgs e)
         {
             ProdNumber += 6;
-            if (ProdNumber <= db.Product.Count())
+            if (ProdNumber <= products.Count/*db.Product.Count()*/)
             {
                 UserControlLoad();
             }
@@ -100,5 +115,44 @@ namespace BeautySalon
                 ProdNumber += 6;
             }
         }
+
+        private void Filtercb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Filtercb.DataSource = manufacturerBindingSource.DataSource.ToString();
+            //Filtercb.DisplayMember = "Name";
+
+            if(Filtercb.SelectedIndex == 0)
+            {
+                products = db.Product.ToList();
+                UserControlLoad();
+            }
+            else
+            {
+                if (Filtercb.SelectedValue == null) return;
+                int n = (int)Filtercb.SelectedValue;
+                var filterManufacture = db.Product.Where(x => x.ManufacturerID == n);
+                products = filterManufacture.ToList();
+                UserControlLoad();
+            }
+        }
+
+        //public class ComboBoxWithAll : ComboBox
+        //{
+        //    public ComboBoxWithAll()
+        //    {
+        //        this.BindingContextChanged += OnBindingContextChanged;
+        //    }
+
+        //    private void OnBindingContextChanged(object sender, EventArgs args)
+        //    {
+        //        var item = "Все элементы";
+        //        var list = this.DataSource as List<string>;
+        //        if (list != null && list.Any() && list[0] != item)
+        //        {
+        //            list.Insert(0, item);
+        //        }
+        //        OnDataSourceChanged(args);
+        //    }
+        //}
     }
 }
