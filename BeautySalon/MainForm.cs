@@ -29,6 +29,8 @@ namespace BeautySalon
             // TODO: данная строка кода позволяет загрузить данные в таблицу "user38DataSet.Manufacturer". При необходимости она может быть перемещена или удалена.
             this.manufacturerTableAdapter.Fill(this.user38DataSet.Manufacturer);
 
+            /*добавление панели User Control
+             в коллецию ProductUserControl*/
             controls.Add(productUserControl1);
             controls.Add(productUserControl2);
             controls.Add(productUserControl3);
@@ -38,10 +40,11 @@ namespace BeautySalon
 
             products = db.Product.ToList();
 
-            UserControlLoad();
+            UserControlLoad();//вызывание метода для отображения на форме панелей
 
         }
 
+        //Метод для отображения панели на форму
         private void UserControlLoad()
         {
             int i = ProdNumber; // начальное значение товара на странице
@@ -80,6 +83,7 @@ namespace BeautySalon
             Rangelb.Text = $"{viewValue} из {maxProduct}";
         }
 
+        //реализация перелистывания вперед, кнопка ">"
         private void rightButton_Click(object sender, EventArgs e)
         {
             ProdNumber += 6;
@@ -93,6 +97,7 @@ namespace BeautySalon
             }
         }
 
+        //реализация перелистывания назад, кнопка "<"
         private void leftButton_Click(object sender, EventArgs e)
         {
             ProdNumber -= 6;
@@ -108,6 +113,7 @@ namespace BeautySalon
 
         private void Filtercb_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /*фильтрация недоделана, не хватает добавленного первого элемента "Все элементы"*/
             if(Filtercb.SelectedIndex == 0)
             {
                 products = db.Product.ToList();
