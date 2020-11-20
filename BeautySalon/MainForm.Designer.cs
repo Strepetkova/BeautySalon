@@ -42,6 +42,8 @@ namespace BeautySalon
             this.rightButton = new System.Windows.Forms.Button();
             this.Rangelb = new System.Windows.Forms.Label();
             this.Filtercb = new System.Windows.Forms.ComboBox();
+            this.manufacturerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.user38DataSet = new BeautySalon.user38DataSet();
             this.manufacturerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Seachtb = new System.Windows.Forms.TextBox();
             this.AddButton = new System.Windows.Forms.Button();
@@ -51,14 +53,12 @@ namespace BeautySalon
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Searchlb = new System.Windows.Forms.Label();
             this.Filterlb = new System.Windows.Forms.Label();
-            this.user38DataSet = new BeautySalon.user38DataSet();
-            this.manufacturerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.manufacturerTableAdapter = new BeautySalon.user38DataSetTableAdapters.ManufacturerTableAdapter();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.manufacturerBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.user38DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.manufacturerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.user38DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.manufacturerBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -170,6 +170,7 @@ namespace BeautySalon
             // 
             this.Filtercb.DataSource = this.manufacturerBindingSource1;
             this.Filtercb.DisplayMember = "Name";
+            this.Filtercb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Filtercb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Filtercb.FormattingEnabled = true;
             this.Filtercb.Location = new System.Drawing.Point(701, 79);
@@ -178,6 +179,16 @@ namespace BeautySalon
             this.Filtercb.TabIndex = 5;
             this.Filtercb.ValueMember = "ID";
             this.Filtercb.SelectedIndexChanged += new System.EventHandler(this.Filtercb_SelectedIndexChanged);
+            // 
+            // manufacturerBindingSource1
+            // 
+            this.manufacturerBindingSource1.DataMember = "Manufacturer";
+            this.manufacturerBindingSource1.DataSource = this.user38DataSet;
+            // 
+            // user38DataSet
+            // 
+            this.user38DataSet.DataSetName = "user38DataSet";
+            this.user38DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // manufacturerBindingSource
             // 
@@ -200,6 +211,7 @@ namespace BeautySalon
             this.AddButton.TabIndex = 7;
             this.AddButton.Text = "Добавить";
             this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // ChangeButtton
             // 
@@ -264,16 +276,6 @@ namespace BeautySalon
             this.Filterlb.TabIndex = 13;
             this.Filterlb.Text = "Фильтрация";
             // 
-            // user38DataSet
-            // 
-            this.user38DataSet.DataSetName = "user38DataSet";
-            this.user38DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // manufacturerBindingSource1
-            // 
-            this.manufacturerBindingSource1.DataMember = "Manufacturer";
-            this.manufacturerBindingSource1.DataSource = this.user38DataSet;
-            // 
             // manufacturerTableAdapter
             // 
             this.manufacturerTableAdapter.ClearBeforeFill = true;
@@ -303,10 +305,10 @@ namespace BeautySalon
             this.Text = "Список товаров";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.manufacturerBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.user38DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.manufacturerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.user38DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.manufacturerBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

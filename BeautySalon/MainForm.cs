@@ -114,7 +114,7 @@ namespace BeautySalon
         private void Filtercb_SelectedIndexChanged(object sender, EventArgs e)
         {
             /*фильтрация недоделана, не хватает добавленного первого элемента "Все элементы"*/
-            if(Filtercb.SelectedIndex == 0)
+            if (Filtercb.SelectedIndex == 0)
             {
                 products = db.Product.ToList();
                 UserControlLoad();
@@ -129,23 +129,34 @@ namespace BeautySalon
             }
         }
 
-        //public class ComboBoxWithAll : ComboBox
-        //{
-        //    public ComboBoxWithAll()
-        //    {
-        //        this.BindingContextChanged += OnBindingContextChanged;
-        //    }
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            AddChangeProducts acp = new AddChangeProducts();
+            acp.db = db;
+            DialogResult dr = acp.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                products = db.Product.ToList();
+            }
 
-        //    private void OnBindingContextChanged(object sender, EventArgs args)
-        //    {
-        //        var item = "Все элементы";
-        //        var list = this.DataSource as List<string>;
-        //        if (list != null && list.Any() && list[0] != item)
-        //        {
-        //            list.Insert(0, item);
-        //        }
-        //        OnDataSourceChanged(args);
-        //    }
-        //}
+            //public class ComboBoxWithAll : ComboBox
+            //{
+            //    public ComboBoxWithAll()
+            //    {
+            //        this.BindingContextChanged += OnBindingContextChanged;
+            //    }
+
+            //    private void OnBindingContextChanged(object sender, EventArgs args)
+            //    {
+            //        var item = "Все элементы";
+            //        var list = this.DataSource as List<string>;
+            //        if (list != null && list.Any() && list[0] != item)
+            //        {
+            //            list.Insert(0, item);
+            //        }
+            //        OnDataSourceChanged(args);
+            //    }
+            //}
+        }
     }
 }
