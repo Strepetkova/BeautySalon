@@ -40,16 +40,6 @@ namespace BeautySalon
 
             UserControlLoad();
 
-            if (7 < 7)
-            {
-                MessageBox.Show("Are you okey?");
-            }
-            else
-            {
-                MessageBox.Show("Okey, you are okey...");
-            }
-
-            //Filtercb.Items.Insert(0, "Все элементы");
         }
 
         private void UserControlLoad()
@@ -118,9 +108,6 @@ namespace BeautySalon
 
         private void Filtercb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Filtercb.DataSource = manufacturerBindingSource.DataSource.ToString();
-            //Filtercb.DisplayMember = "Name";
-
             if(Filtercb.SelectedIndex == 0)
             {
                 products = db.Product.ToList();
