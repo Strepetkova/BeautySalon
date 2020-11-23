@@ -64,13 +64,13 @@
     <Compile Include="ModelEF\Client.cs" />
     <Compile Include="ModelEF\ClientService.cs" />
     <Compile Include="ModelEF\DocumentByService.cs" />
+    <Compile Include="ModelEF\Gender.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModelEF\Gender.cs" />
     <Compile Include="ModelEF\Manufacturer.cs" />
     <Compile Include="ModelEF\Model1.cs" />
     <Compile Include="ModelEF\Product.cs" />
@@ -82,7 +82,7 @@
     <Compile Include="ProductUserControl.Designer.cs">
       <DependentUpon>ProductUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="ModelEF\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ModelEF\Service.cs" />
     <Compile Include="ModelEF\ServicePhoto.cs" />

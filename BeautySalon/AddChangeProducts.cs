@@ -32,8 +32,12 @@ namespace BeautySalon
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if(!String.IsNullOrEmpty(nameTb.Text) || !String.IsNullOrEmpty(pricetb.Text) || !String.IsNullOrEmpty(descriptionRtb.Text) ||
-                Imagepb.Image!=null || !String.IsNullOrEmpty(manufacterCmb.Text))
+            if(String.IsNullOrEmpty(nameTb.Text) || String.IsNullOrEmpty(pricetb.Text) || Imagepb.Image==null || String.IsNullOrEmpty(manufacterCmb.Text))
+            {
+                MessageBox.Show("Уважаемый пользователь! Вы заполнели не все поля! Сохранение не произошло!",
+                    "Ошибка сохранения", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
             {
                 int id;
                 bool b = int.TryParse(IDtb.Text, out id);
@@ -55,14 +59,14 @@ namespace BeautySalon
                     ImageConverter ic = new ImageConverter();
                     byte[] b1 = (byte[])ic.ConvertTo(Imagepb.Image, typeof(byte[]));
                     prod.MainImagePath = AddChangeProducts.way;
-                    Imagepb.Image.Save(@"C: \Users\user\Documents\Учебная практика\11 - Магазин косметики(ДЭ 2020 осень)\Ресурсы для задания\");
+                    MessageBox.Show(AddChangeProducts.way);
                     if (activechb.Checked == true)
-                        prod.IsActive = "да";
+                        prod.IsActive = true;
                     else
                     {
-                        prod.IsActive = "нет";
+                        prod.IsActive = false;
                     }
-                    prod.ManufacturerID = Convert.ToInt32(manufacterCmb.Text);
+                    prod.ManufacturerID = Convert.ToInt32(manufacterCmb.SelectedValue);
 
                     db.Product.Add(prod);
                     try
@@ -71,15 +75,11 @@ namespace BeautySalon
                         DialogResult = DialogResult.OK;
                     }
                     catch (Exception ex)
-                    { 
+                    {
                         MessageBox.Show(ex.InnerException.InnerException.Message);
                     }
+                    
                 }
-            }
-            else
-            {
-                MessageBox.Show("Уважаемый пользователь! Вы заполнели не все поля! Сохранение не произошло!",
-                    "Ошибка сохранения", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -88,11 +88,15 @@ namespace BeautySalon
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Выберите изображение автомобиля";
             ofd.Filter = "Файл jpg, gif, png| *.jpg;*.gif;*.png|Все файлы (*.*)|*.*";
-            AddChangeProducts.way = openFileDialog1.SafeFileName;
+
+
             DialogResult dr = ofd.ShowDialog();
             if (dr == DialogResult.OK)
             {
                 Imagepb.Image = Image.FromFile(ofd.FileName);
+                AddChangeProducts.way = ofd.SafeFileName;
+                MessageBox.Show(ofd.SafeFileName);
+                //Imagepb.Image.Save(@"C: \Users\user\Documents\Учебная практика\11 - Магазин косметики(ДЭ 2020 осень)\Ресурсы для задания\");
             }
             else{}
         }

@@ -32,9 +32,7 @@ namespace BeautySalon
         [StringLength(1000)]
         public string MainImagePath { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string IsActive { get; set; }
+        public bool IsActive { get; set; }
 
         public int? ManufacturerID { get; set; }
 

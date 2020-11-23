@@ -62,7 +62,7 @@ namespace BeautySalon
                     puc.ProdPictImage = Image.FromFile(file);
                     puc.Visible = true;
                     viewValue++;
-                    if (products[i].IsActive == "да")
+                    if (products[i].IsActive == true)
                     {
                         puc.BackColor = Color.White;
                     }

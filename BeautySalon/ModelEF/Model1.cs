@@ -8,7 +8,7 @@ namespace BeautySalon
     public partial class Model1 : DbContext
     {
         public Model1()
-            : base("name=Model11")
+            : base("name=Model13")
         {
         }
 
@@ -57,10 +57,6 @@ namespace BeautySalon
             modelBuilder.Entity<Product>()
                 .Property(e => e.Cost)
                 .HasPrecision(19, 4);
-
-            modelBuilder.Entity<Product>()
-                .Property(e => e.IsActive)
-                .IsUnicode(false);
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.ProductPhoto)
